@@ -18,7 +18,7 @@
         const goodluckMessage = document.getElementById('goodluck-message');
         
         // Ensure you change this to your desired PNG image link!
-        const IMAGE_URL = "ticket.webp"; // Placeholder image link
+        const IMAGE_URL = "https://i.imgur.com/g70y54X.png"; // Placeholder image link
         const NUM_IMAGES_ON_PULL = 10; // Number of images to drop per click
 
         /**
@@ -101,6 +101,9 @@
                 });
             }, 500);
         }
+
+        // FIX: Declare the variable with 'let' at the top level so it is accessible inside updateCountdown()
+        let countdownInterval;
         
         /**
          * Calculates the time remaining and updates the DOM
@@ -131,7 +134,8 @@
 
             // If the countdown is finished, clear the interval and show a message
             if (distance < 0) {
-                clearInterval(countdownInterval);
+                // This now correctly accesses the 'let' declared variable
+                clearInterval(countdownInterval); 
                 daysEl.textContent = '00';
                 hoursEl.textContent = '00';
                 minutesEl.textContent = '00';
@@ -146,8 +150,6 @@
                 
                 // Run confetti!
                 runConfetti();
-                
-                // REMOVED: Lines that disabled the button and input, ensuring the button remains functional.
             }
         }
 
@@ -155,5 +157,5 @@
         // Initial call to display the time immediately
         updateCountdown();
 
-        // Update the countdown every second
-        const countdownInterval = setInterval(updateCountdown, 1000);
+        // ASSIGN: Now we assign the interval to the pre-declared 'let' variable
+        countdownInterval = setInterval(updateCountdown, 1000);
