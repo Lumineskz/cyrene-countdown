@@ -2,7 +2,7 @@
 
         // 1. Define the target date and time 
         // Note: This date is set to your local time ('November 7, 2025 08:30:00').
-        const targetDate = new Date('October 19, 2025 21:31:20').getTime();
+        const targetDate = new Date('November 7, 2025 08:30:00').getTime();
 
         // Get the elements to update
         const daysEl = document.querySelector('.days');
