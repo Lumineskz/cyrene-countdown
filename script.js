@@ -2,7 +2,7 @@
 
         // 1. Define the target date and time 
         // Note: This date is set to your local time ('November 7, 2025 08:30:00').
-        const targetDate = new Date('November 7, 2025 08:30:00').getTime();
+        const targetDate = new Date('November 5, 2025 08:45:00').getTime();
 
         // Get the elements to update
         const daysEl = document.querySelector('.days');
@@ -18,7 +18,7 @@
         const goodluckMessage = document.getElementById('goodluck-message');
         
         // Ensure you change this to your desired PNG image link!
-        const IMAGE_URL = "https://i.imgur.com/g70y54X.png"; // Placeholder image link
+        const IMAGE_URL = "ticket.webp"; // Placeholder image link
         const NUM_IMAGES_ON_PULL = 10; // Number of images to drop per click
 
         /**
