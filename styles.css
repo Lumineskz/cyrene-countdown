@@ -20,7 +20,7 @@
 
     .countdown-section, .pull-form {
         width: 90%; /* Responsive width */
-        max-width: 550px; /* Max width constraint */
+        max-width: 710px; /* Max width constraint */
         margin: 0 auto;
         padding: 20px;
         border-radius: 25px;
@@ -150,4 +150,111 @@
     
     .hidden {
         display: none !important;
+    }
+
+    /* Responsive helpers and fluid sizes */
+    :root{
+        --card-font: clamp(1.6rem, 2.5vw, 3.2rem);
+        --sep-font: clamp(1.4rem, 2vw, 3rem);
+        --card-min-w: clamp(44px, 8vw, 80px);
+        --fall-size: 50px;
+        --fall-duration: 6s;
+    }
+
+    /* Fluid cards, spacing and layout overrides for all viewports */
+    .card{
+        font-size: var(--card-font);
+        min-width: var(--card-min-w);
+        padding: clamp(6px, 1.4vw, 12px);
+    }
+
+    .separator{
+        font-size: var(--sep-font);
+    }
+
+    .countdown-section{
+        height: auto;           /* avoid fixed height on small screens */
+        min-height: 260px;
+        padding: clamp(14px, 2.6vw, 32px);
+        gap: clamp(8px, 1.6vw, 20px);
+    }
+
+    .timer{
+        gap: clamp(4px, 1.2vw, 12px);
+        flex-wrap: wrap;        /* allow items to wrap on narrow screens */
+        justify-content: center;
+    }
+
+    .pull-form input,
+    .pull-form button{
+        font-size: clamp(.9rem, 1.6vw, 1.05rem);
+        padding: clamp(8px, 1.8vw, 14px);
+    }
+
+    /* Falling images scale and speed */
+    .falling-image{
+        width: var(--fall-size);
+        height: var(--fall-size);
+        animation-duration: var(--fall-duration);
+    }
+
+    /* Small screens (phones) */
+    @media (max-width: 480px){
+        :root{
+            --card-font: 1.6rem;
+            --sep-font: 1.6rem;
+            --card-min-w: 44px;
+            --fall-size: 36px;
+            --fall-duration: 5s;
+        }
+
+        .countdown-section, .pull-form{
+            width: 95%;
+            max-width: none;
+            border-radius: 16px;
+            padding: 12px;
+        }
+
+        .timer { gap: 6px; }
+        .card { font-weight: 700; }
+        .separator { padding: 6px 0; }
+    }
+
+    /* Medium screens (tablets) */
+    @media (min-width: 481px) and (max-width: 1024px){
+        :root{
+            --card-font: 2rem;
+            --sep-font: 2rem;
+            --fall-size: 48px;
+            --fall-duration: 5.5s;
+        }
+
+        .countdown-section{ min-height: 300px; }
+        .card{ padding: 8px 10px; }
+    }
+
+    /* Large screens (desktops) */
+    @media (min-width: 1025px){
+        :root{
+            --card-font: 3rem;
+            --sep-font: 2.8rem;
+            --card-min-w: 80px;
+            --fall-size: 64px;
+            --fall-duration: 7s;
+        }
+
+        .countdown-section{ min-height: 320px; max-width: 720px; }
+        .timer{ gap: 12px; }
+    }
+
+    /* Accessibility: prefer reduced motion */
+    @media (prefers-reduced-motion: reduce){
+        .falling-image,
+        .card,
+        .pull-form button,
+        .pull-form input,
+        body {
+            animation: none !important;
+            transition: none !important;
+        }
     }
