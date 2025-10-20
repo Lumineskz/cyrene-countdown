@@ -324,6 +324,11 @@ body {
         --fall-size: 36px;
         --fall-duration: 5s;
     }
+    .countdown-title{
+        font-size: 1.4em;
+        text-align: center;
+
+    }
 
     .countdown-section, .pull-form{
         width: 95%;
@@ -353,6 +358,7 @@ body {
 
     .countdown-section{ min-height: 300px; }
     .card{ padding: 8px 10px; }
+    
 }
 
 /* Large Screens */
@@ -364,7 +370,7 @@ body {
         --fall-size: 64px;
         --fall-duration: 7s;
     }
-
+    
     .countdown-section{ min-height: 320px; max-width: 720px; }
     .timer{ gap: 12px; }
 }
